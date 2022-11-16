@@ -23,6 +23,10 @@ struct HomeView: View {
           CircleButtonView(iconName: showPortfolio ? "plus" :"info")
           // To get rid of animation for the icon, use this
             .animation(.none)
+            .background(
+              // To emphasize the button change due to the different mode, add animation background
+              CircleButtonAnimationView(animate: $showPortfolio)
+            )
           Spacer()
           Text(showPortfolio ? "Portfolio" : "Live prices")
             .font(.headline)
