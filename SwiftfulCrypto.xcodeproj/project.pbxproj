@@ -12,6 +12,7 @@
 		43A0792E29252CEC00D76D42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43A0792D29252CEC00D76D42 /* Assets.xcassets */; };
 		43A0793129252CEC00D76D42 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43A0793029252CEC00D76D42 /* Preview Assets.xcassets */; };
 		43A0793A2925308B00D76D42 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A079392925308B00D76D42 /* Color.swift */; };
+		43A0793D2925354C00D76D42 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A0793C2925354C00D76D42 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		43A0792D29252CEC00D76D42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43A0793029252CEC00D76D42 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		43A079392925308B00D76D42 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		43A0793C2925354C00D76D42 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				43A0792929252CEB00D76D42 /* SwiftfulCryptoApp.swift */,
+				43A0793E2925355500D76D42 /* Core */,
 				43A0793B2925309300D76D42 /* Extensions */,
 				43A0792B29252CEB00D76D42 /* ContentView.swift */,
 				43A0792D29252CEC00D76D42 /* Assets.xcassets */,
@@ -76,6 +79,30 @@
 				43A079392925308B00D76D42 /* Color.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		43A0793E2925355500D76D42 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				43A0793F2925355F00D76D42 /* Home */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		43A0793F2925355F00D76D42 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				43A079402925356C00D76D42 /* Views */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		43A079402925356C00D76D42 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				43A0793C2925354C00D76D42 /* HomeView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +176,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43A0792C29252CEB00D76D42 /* ContentView.swift in Sources */,
+				43A0793D2925354C00D76D42 /* HomeView.swift in Sources */,
 				43A0792A29252CEB00D76D42 /* SwiftfulCryptoApp.swift in Sources */,
 				43A0793A2925308B00D76D42 /* Color.swift in Sources */,
 			);
