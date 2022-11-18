@@ -22,6 +22,8 @@ struct HomeView: View {
       VStack {
         homeHeader
         
+        columTitles
+        
         if !showPortfolio {
           allCoinsList
           // .transition makes animation pushong the element away to the edge
@@ -103,5 +105,20 @@ extension HomeView {
       })
     }
     .listStyle(PlainListStyle())
+  }
+  
+  private var columTitles: some View {
+    HStack {
+      Text("Coin")
+      Spacer()
+      if showPortfolio {
+        Text("Holdings")
+      }
+      Text("Price")
+        .frame(width: UIScreen.main.bounds.width / 3.5, alignment: .trailing)
+    }
+    .padding(.horizontal)
+    .font(.caption)
+    .foregroundColor(Color.theme.secondaryText)
   }
 }
