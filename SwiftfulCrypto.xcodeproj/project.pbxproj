@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4344696C2927CEBD00FE0FB9 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4344696B2927CEBD00FE0FB9 /* HomeViewModel.swift */; };
 		43A0792A29252CEB00D76D42 /* SwiftfulCryptoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A0792929252CEB00D76D42 /* SwiftfulCryptoApp.swift */; };
 		43A0792C29252CEB00D76D42 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A0792B29252CEB00D76D42 /* ContentView.swift */; };
 		43A0792E29252CEC00D76D42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43A0792D29252CEC00D76D42 /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4344696B2927CEBD00FE0FB9 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		43A0792629252CEB00D76D42 /* SwiftfulCrypto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftfulCrypto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43A0792929252CEB00D76D42 /* SwiftfulCryptoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftfulCryptoApp.swift; sourceTree = "<group>"; };
 		43A0792B29252CEB00D76D42 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -48,6 +50,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4344696D2927CEC100FE0FB9 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				4344696B2927CEBD00FE0FB9 /* HomeViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		43A0791D29252CEB00D76D42 = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				43A079402925356C00D76D42 /* Views */,
+				4344696D2927CEC100FE0FB9 /* ViewModels */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -218,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43A0794B2926AED500D76D42 /* CoinRowView.swift in Sources */,
+				4344696C2927CEBD00FE0FB9 /* HomeViewModel.swift in Sources */,
 				43A0792C29252CEB00D76D42 /* ContentView.swift in Sources */,
 				43A0793D2925354C00D76D42 /* HomeView.swift in Sources */,
 				43A0792A29252CEB00D76D42 /* SwiftfulCryptoApp.swift in Sources */,

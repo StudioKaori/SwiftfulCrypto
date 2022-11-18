@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
   
+  @EnvironmentObject private var vm: HomeViewModel
   @State private var showPortfolio: Bool = false
   
   var body: some View {
@@ -20,6 +21,11 @@ struct HomeView: View {
       // content layer
       VStack {
         homeHeader
+        
+        List {
+          CoinRowView(coin: DeveloperPreview.instance.coin, showHoldingsColum: false)
+        }
+        .listStyle(PlainListStyle())
         
         // By setting spacer here, it can push up the header to the top although minLength is 0
         Spacer(minLength: 0)
@@ -34,6 +40,9 @@ struct HomeView_Previews: PreviewProvider {
       HomeView()
         .navigationBarBackButtonHidden(true)
     }
+    // add vm for the preview, but maybe because of Xcode update
+    // working without giving this code.
+    .environmentObject(dev.homeVM)
   }
 }
 
