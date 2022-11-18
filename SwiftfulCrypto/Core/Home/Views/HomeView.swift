@@ -22,12 +22,17 @@ struct HomeView: View {
       VStack {
         homeHeader
         
-        List {
-          ForEach(vm.allCoins, content: { coin in
-            CoinRowView(coin: coin, showHoldingsColum: false)
-          })
+        if !showPortfolio {
+          allCoinsList
+          // .transition makes animation pushong the element away to the edge
+          .transition(.move(edge: .leading))
         }
-        .listStyle(PlainListStyle())
+        
+        if showPortfolio {
+          portfolioCoinsList
+          .transition(.move(edge: .trailing))
+        }
+        
         
         // By setting spacer here, it can push up the header to the top although minLength is 0
         Spacer(minLength: 0)
@@ -76,5 +81,27 @@ extension HomeView {
         }
     }
     .padding(.horizontal)
+  }
+  
+  private var allCoinsList: some View {
+    List {
+      ForEach(vm.allCoins, content: { coin in
+        CoinRowView(coin: coin, showHoldingsColum: false)
+        // set insets for each row
+          .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
+      })
+    }
+    .listStyle(PlainListStyle())
+  }
+  
+  private var portfolioCoinsList: some View {
+    List {
+      ForEach(vm.portfolioCoins, content: { coin in
+        CoinRowView(coin: coin, showHoldingsColum: true)
+        // set insets for each row
+          .listRowInsets(.init(top: 10, leading: 0, bottom: 10, trailing: 10))
+      })
+    }
+    .listStyle(PlainListStyle())
   }
 }
