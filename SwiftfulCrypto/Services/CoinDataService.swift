@@ -10,6 +10,7 @@ import Combine
 
 class CoinDataService {
   
+  // Publish the all coin data
   @Published var allCoins: [CoinModel] = []
   var coinSubscription: AnyCancellable?
   
@@ -46,9 +47,7 @@ class CoinDataService {
           print(error.localizedDescription)
         }
       }, receiveValue: { [weak self] (returnedCoins) in
-        //print("returned coins: \(returnedCoins)")
         self?.allCoins = returnedCoins
-        print("self?.allCoins in service: \(self?.allCoins)")
         // Since it's only one time fetching, you don't need to keep subscribe it.
         self?.coinSubscription?.cancel()
       })
