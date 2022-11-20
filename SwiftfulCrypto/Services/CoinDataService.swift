@@ -6,13 +6,15 @@
 //
 
 import Foundation
+import Combine
 
 class CoinDataServices {
   
   @Published var allCoins: [CoinModel] = []
+  var coinSubscription: AnyCancellable?
   
   init() {
-    
+    getCoins()
   }
   
   // this method is only called inside of this class
@@ -20,7 +22,8 @@ class CoinDataServices {
     
     guard let url = URL(string: "https://api.coingecko.com/api/v3/coins/markets?vs_currency=USD&order=market_cap_desc&per_page=250&page=1&sparkline=true&price_change_percentage=24h") else { return }
     
-    URLSession.shared.dataTaskPublisher(for: url)
+    // If you want to cancel this subscription, you can use coinSubscription (the publisher remains)
+    coinSubscription = URLSession.shared.dataTaskPublisher(for: url)
     // do in background thread
       .subscribe(on: DispatchQueue.global(qos: .default))
       .tryMap { (output) -> Data in
@@ -43,6 +46,8 @@ class CoinDataServices {
         }
       }, receiveValue: { [weak self] (returnedCoins) in
         self?.allCoins = returnedCoins
+        // Since it's only one time fetching, you don't need to keep subscribe it.
+        self?.coinSubscription?.cancel()
       })
   }
 }

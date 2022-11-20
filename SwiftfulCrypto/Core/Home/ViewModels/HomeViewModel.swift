@@ -6,16 +6,30 @@
 //
 
 import Foundation
+import Combine
 
 class HomeViewModel: ObservableObject {
   
   @Published var allCoins: [CoinModel] = []
   @Published var portfolioCoins: [CoinModel] = []
   
+  // initialise the new data service and get coin data.
+  private let dataService = CoinDataServices()
+  private var cancellables = Set<AnyCancellable>()
+  
   init() {
-    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-      self.allCoins.append(DeveloperPreview.instance.coin)
-      self.portfolioCoins.append(DeveloperPreview.instance.coin)
-    }
+    addSubscribers()
+  }
+  
+  func addSubscribers() {
+    
+    // Use $allCoins with money sign, this means Publisher
+    // When the allCoins is published, this subscriber will get notified.
+    dataService.$allCoins
+      .sink { [weak self] (returnedCoins) in
+        self?.allCoins = returnedCoins
+      }
+      .store(in: &cancellables)
+    
   }
 }
