@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4344696C2927CEBD00FE0FB9 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4344696B2927CEBD00FE0FB9 /* HomeViewModel.swift */; };
 		4344698E292ABFBF00FE0FB9 /* CoinDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4344698D292ABFBF00FE0FB9 /* CoinDataService.swift */; };
+		43446991292AD1C300FE0FB9 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43446990292AD1C300FE0FB9 /* NetworkingManager.swift */; };
 		43A0792A29252CEB00D76D42 /* SwiftfulCryptoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A0792929252CEB00D76D42 /* SwiftfulCryptoApp.swift */; };
 		43A0792C29252CEB00D76D42 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A0792B29252CEB00D76D42 /* ContentView.swift */; };
 		43A0792E29252CEC00D76D42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43A0792D29252CEC00D76D42 /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		4344696B2927CEBD00FE0FB9 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		4344698D292ABFBF00FE0FB9 /* CoinDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDataService.swift; sourceTree = "<group>"; };
+		43446990292AD1C300FE0FB9 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
 		43A0792629252CEB00D76D42 /* SwiftfulCrypto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftfulCrypto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43A0792929252CEB00D76D42 /* SwiftfulCryptoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftfulCryptoApp.swift; sourceTree = "<group>"; };
 		43A0792B29252CEB00D76D42 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -68,6 +70,14 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		43446992292AD1D700FE0FB9 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				43446990292AD1C300FE0FB9 /* NetworkingManager.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		43A0791D29252CEB00D76D42 = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				43A0792929252CEB00D76D42 /* SwiftfulCryptoApp.swift */,
+				43446992292AD1D700FE0FB9 /* Utilities */,
 				4344698F292ABFC400FE0FB9 /* Services */,
 				43A0793B2925309300D76D42 /* Extensions */,
 				43A079492926804C00D76D42 /* Models */,
@@ -247,6 +258,7 @@
 				43A0792A29252CEB00D76D42 /* SwiftfulCryptoApp.swift in Sources */,
 				43A07942292580FF00D76D42 /* CircleButtonView.swift in Sources */,
 				43A0793A2925308B00D76D42 /* Color.swift in Sources */,
+				43446991292AD1C300FE0FB9 /* NetworkingManager.swift in Sources */,
 				43A079462925873800D76D42 /* CircleButtonAnimationView.swift in Sources */,
 				43A0794D2926AF4D00D76D42 /* PreviewProvider.swift in Sources */,
 				43A0794F2926B40400D76D42 /* Double.swift in Sources */,
