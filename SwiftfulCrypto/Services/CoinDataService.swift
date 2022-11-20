@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class CoinDataServices {
+class CoinDataService {
   
   @Published var allCoins: [CoinModel] = []
   var coinSubscription: AnyCancellable?
@@ -40,12 +40,15 @@ class CoinDataServices {
       .sink(receiveCompletion: { (completion) in
         switch completion {
         case .finished:
+          print("finished")
           break
         case .failure(let error):
           print(error.localizedDescription)
         }
       }, receiveValue: { [weak self] (returnedCoins) in
+        //print("returned coins: \(returnedCoins)")
         self?.allCoins = returnedCoins
+        print("self?.allCoins in service: \(self?.allCoins)")
         // Since it's only one time fetching, you don't need to keep subscribe it.
         self?.coinSubscription?.cancel()
       })

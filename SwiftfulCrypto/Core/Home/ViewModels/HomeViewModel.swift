@@ -14,7 +14,7 @@ class HomeViewModel: ObservableObject {
   @Published var portfolioCoins: [CoinModel] = []
   
   // initialise the new data service and get coin data.
-  private let dataService = CoinDataServices()
+  private let dataService = CoinDataService()
   private var cancellables = Set<AnyCancellable>()
   
   init() {
@@ -28,6 +28,7 @@ class HomeViewModel: ObservableObject {
     dataService.$allCoins
       .sink { [weak self] (returnedCoins) in
         self?.allCoins = returnedCoins
+        print("self?.allCoins in VM: \(self?.allCoins)")
       }
       .store(in: &cancellables)
     
