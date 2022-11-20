@@ -26,15 +26,7 @@ class CoinDataService {
     // If you want to cancel this subscription, you can use coinSubscription (the publisher remains)
     coinSubscription = NetworkingManager.download(url: url)
       .decode(type: [CoinModel].self, decoder: JSONDecoder())
-      .sink(receiveCompletion: { (completion) in
-        switch completion {
-        case .finished:
-          print("finished")
-          break
-        case .failure(let error):
-          print(error.localizedDescription)
-        }
-      }, receiveValue: { [weak self] (returnedCoins) in
+      .sink(receiveCompletion: NetworkingManager.handleCompletion, receiveValue: { [weak self] (returnedCoins) in
         self?.allCoins = returnedCoins
         // Since it's only one time fetching, you don't need to keep subscribe it.
         self?.coinSubscription?.cancel()
