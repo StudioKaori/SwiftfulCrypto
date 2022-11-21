@@ -14,17 +14,19 @@ class NetworkingManager {
     return URLSession.shared.dataTaskPublisher(for: url)
     // do in background thread
       .subscribe(on: DispatchQueue.global(qos: .default))
-      .tryMap { (output) -> Data in
-        
-        guard let response = output.response as? HTTPURLResponse,
-              // Make sure that HTTPURLResponse above has valid status code (successfull response range 200-299)
-              response.statusCode >=  200 && response.statusCode < 300 else {
-          throw URLError(.badServerResponse)
-        }
-        return output.data
-      }
+      .tryMap({ try handleURLResponse(output: $0) })
       .receive(on: DispatchQueue.main)
       .eraseToAnyPublisher()
+  }
+  
+  // To reuse the handling URL response, make a new function
+  static func handleURLResponse(output: URLSession.DataTaskPublisher.Output) throws -> Data {
+    guard let response = output.response as? HTTPURLResponse,
+          // Make sure that HTTPURLResponse above has valid status code (successfull response range 200-299)
+          response.statusCode >=  200 && response.statusCode < 300 else {
+      throw URLError(.badServerResponse)
+    }
+    return output.data
   }
   
   static func handleCompletion(completion: Subscribers.Completion<Error>) {
