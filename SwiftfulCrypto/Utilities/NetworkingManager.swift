@@ -18,6 +18,7 @@ class NetworkingManager {
     
     // We can give LocalizedError
     var errorDescription: String? {
+      // Use switch & self to return the localised error msg
       switch self {
       case .badURLResponse(url: let url): return "[🔥] Bad responser from URL: \(url)"
       case .unknown: return "[⚠️] Unknow error occured"
